@@ -4,69 +4,66 @@
   <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, user-scalable=no" />
-      <title>Archivio Fotografico Salentini - Castrignano</title>
+      <title>Archivio Fotografico Basso Salento - Castrignano</title>
       <link rel="stylesheet" href="public\lightgallery\css\lightgallery.css" />
-      <link rel="stylesheet" href="public\videojs\video-js.min.css" />
       <link rel="stylesheet" href="public\lightgallery\css\lg-exif.min.css" />
+      <link rel="stylesheet" href="public\videojs\video-js.min.css" />
       <link rel="stylesheet" href="public\core.css" />
       <link rel="stylesheet" href="public\theme.css" />
-      <link rel="stylesheet" href="public\justifiedgallery\justifiedGallery.min.css" />
   </head>
 
   <body>
 
+    <header>
+      <a href="index.html">
+        <h1>Archivio Fotografico Basso Salento</h1>
+      </a>
+    </header>
     
-    <div id="container">
-    
-      <!--
-        Gallery title
-      -->
-      <header>
-        <h1><a href="index.html">Archivio Fotografico Salentini</a></h1>
-      </header>
-    
-      <!--
-        Breadcrumbs of parent albums
-      -->
+    <!--
+      Breadcrumbs of parent albums
+    -->
       <nav class="breadcrumbs">
-    <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="Castrignano.html">Castrignano</a>
+    <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a class="breadcrumb-item" href="Castrignano.html">Castrignano</a>
       </nav>
     
-      <!--
-        Nested albums, if any
-      -->
-      <div id="albums" class="justified-gallery">
-      </div>
+    <ul id="galleries">
+    </ul>
     
-      <!--
-        All photos and videos
-      -->
-      <ul id="media" class="clearfix justified-gallery">
-          
-          <div class="albumList"
+    <ul id="media">
+        
+          <li data-src="media\large\Castrignano\castrignano.jpg"
               data-sub-html=""
-              data-download-url="media\large\Castrignano\castrignano.jpg"data-src="media\large\Castrignano\castrignano.jpg"data-exthumbimage="media\thumbs\Castrignano\castrignano.jpg"
+              data-download-url="media\large\Castrignano\castrignano.jpg"
+              
               data-filename="castrignano.jpg"
-          
-          ><a href="media\large\Castrignano\castrignano.jpg"><img src="media\small\Castrignano\castrignano.jpg" alt="castrignano.jpg" />
-              </a>
-          
-          </div>      
-          <div class="albumList"
+        
+            >
+            <a href="media\large\Castrignano\castrignano.jpg">
+              <img src="media\thumbs\Castrignano\castrignano.jpg"
+                   width="120"
+                   height="120"
+                   alt="castrignano.jpg" />
+            </a>
+          </li>    
+          <li data-src="media\large\Castrignano\castrignano2.jpg"
               data-sub-html=""
-              data-download-url="media\large\Castrignano\castrignano2.jpg"data-src="media\large\Castrignano\castrignano2.jpg"data-exthumbimage="media\thumbs\Castrignano\castrignano2.jpg"
+              data-download-url="media\large\Castrignano\castrignano2.jpg"
+              
               data-filename="castrignano2.jpg"
-          
-          ><a href="media\large\Castrignano\castrignano2.jpg"><img src="media\small\Castrignano\castrignano2.jpg" alt="castrignano2.jpg" />
-              </a>
-          
-          </div>  </ul>
+        
+            >
+            <a href="media\large\Castrignano\castrignano2.jpg">
+              <img src="media\thumbs\Castrignano\castrignano2.jpg"
+                   width="120"
+                   height="120"
+                   alt="castrignano2.jpg" />
+            </a>
+          </li></ul>
     
-      <!--
-        Optional footer
-      -->
-    
-    </div>
+    <!--
+      Optional footer
+    -->
     <!-- Video loader -->
     <div id="videos">
     </div>
@@ -82,7 +79,6 @@
     <script src="public\lightgallery\js\lg-thumbnail.js"></script>
     <script src="public\lightgallery\js\lg-video.js"></script>
     <script src="public\lightgallery\js\lg-exif.min.js"></script>
-    <script src="public\justifiedgallery\jquery.justifiedGallery.min.js"></script>
 
     <script>
       $(document).ready(function() {
@@ -92,23 +88,7 @@
           loop : false,
           download: true,
           counter: true,
-          videojs: true,
-          exThumbImage: 'data-exthumbimage',
-        });
-
-        // Init justified gallery for albums
-        $("#albums").justifiedGallery({
-          margins: 10,
-          rowHeight: 300,
-          maxRowHeight: 325,
-        });
-
-        // Init justified gallery for photos
-        $("#media").justifiedGallery({
-          selector: '.albumList',
-          margins: 10,
-          rowHeight: 250,
-          maxRowHeight: 275,
+          videojs: true
         });
       });
     </script>
