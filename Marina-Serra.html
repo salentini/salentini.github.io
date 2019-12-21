@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="public\lightgallery\css\lg-exif.min.css" />
       <link rel="stylesheet" href="public\core.css" />
       <link rel="stylesheet" href="public\theme.css" />
+      <link rel="stylesheet" href="public\justifiedgallery\justifiedGallery.min.css" />
   </head>
 
   <body>
@@ -34,70 +35,50 @@
       <!--
         Nested albums, if any
       -->
-      <div id="albums">
+      <div id="albums" class="justified-gallery">
       </div>
     
       <!--
         All photos and videos
       -->
-      <ul id="media" class="clearfix">
+      <ul id="media" class="clearfix justified-gallery">
           
-            <li data-src="media\large\Marina Serra\50.JPG"
-                data-sub-html=""
-                data-download-url="media\large\Marina Serra\50.JPG"
-                
-                data-filename="50.JPG"
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media\large\Marina Serra\50.JPG"data-src="media\large\Marina Serra\50.JPG"data-exthumbimage="media\thumbs\Marina Serra\50.JPG"
+              data-filename="50.JPG"
           
-              >
-              <a href="media\large\Marina Serra\50.JPG">
-                <img src="media\thumbs\Marina Serra\50.JPG"
-                     width="120"
-                     height="120"
-                     alt="50.JPG" />
+          ><a href="media\large\Marina Serra\50.JPG"><img src="media\small\Marina Serra\50.JPG" alt="50.JPG" />
               </a>
-            </li>      
-            <li data-src="media\large\Marina Serra\12.JPG"
-                data-sub-html=""
-                data-download-url="media\large\Marina Serra\12.JPG"
-                
-                data-filename="12.JPG"
           
-              >
-              <a href="media\large\Marina Serra\12.JPG">
-                <img src="media\thumbs\Marina Serra\12.JPG"
-                     width="120"
-                     height="120"
-                     alt="12.JPG" />
-              </a>
-            </li>      
-            <li data-src="media\large\Marina Serra\MarinaSerra.jpg"
-                data-sub-html=""
-                data-download-url="media\large\Marina Serra\MarinaSerra.jpg"
-                
-                data-filename="MarinaSerra.jpg"
+          </div>      
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media\large\Marina Serra\12.JPG"data-src="media\large\Marina Serra\12.JPG"data-exthumbimage="media\thumbs\Marina Serra\12.JPG"
+              data-filename="12.JPG"
           
-              >
-              <a href="media\large\Marina Serra\MarinaSerra.jpg">
-                <img src="media\thumbs\Marina Serra\MarinaSerra.jpg"
-                     width="120"
-                     height="120"
-                     alt="MarinaSerra.jpg" />
+          ><a href="media\large\Marina Serra\12.JPG"><img src="media\small\Marina Serra\12.JPG" alt="12.JPG" />
               </a>
-            </li>      
-            <li data-src="media\large\Marina Serra\marinaSerra2.jpg"
-                data-sub-html=""
-                data-download-url="media\large\Marina Serra\marinaSerra2.jpg"
-                
-                data-filename="marinaSerra2.jpg"
           
-              >
-              <a href="media\large\Marina Serra\marinaSerra2.jpg">
-                <img src="media\thumbs\Marina Serra\marinaSerra2.jpg"
-                     width="120"
-                     height="120"
-                     alt="marinaSerra2.jpg" />
+          </div>      
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media\large\Marina Serra\MarinaSerra.jpg"data-src="media\large\Marina Serra\MarinaSerra.jpg"data-exthumbimage="media\thumbs\Marina Serra\MarinaSerra.jpg"
+              data-filename="MarinaSerra.jpg"
+          
+          ><a href="media\large\Marina Serra\MarinaSerra.jpg"><img src="media\small\Marina Serra\MarinaSerra.jpg" alt="MarinaSerra.jpg" />
               </a>
-            </li>  </ul>
+          
+          </div>      
+          <div class="albumList"
+              data-sub-html=""
+              data-download-url="media\large\Marina Serra\marinaSerra2.jpg"data-src="media\large\Marina Serra\marinaSerra2.jpg"data-exthumbimage="media\thumbs\Marina Serra\marinaSerra2.jpg"
+              data-filename="marinaSerra2.jpg"
+          
+          ><a href="media\large\Marina Serra\marinaSerra2.jpg"><img src="media\small\Marina Serra\marinaSerra2.jpg" alt="marinaSerra2.jpg" />
+              </a>
+          
+          </div>  </ul>
     
       <!--
         Optional footer
@@ -119,6 +100,7 @@
     <script src="public\lightgallery\js\lg-thumbnail.js"></script>
     <script src="public\lightgallery\js\lg-video.js"></script>
     <script src="public\lightgallery\js\lg-exif.min.js"></script>
+    <script src="public\justifiedgallery\jquery.justifiedGallery.min.js"></script>
 
     <script>
       $(document).ready(function() {
@@ -128,7 +110,23 @@
           loop : false,
           download: true,
           counter: true,
-          videojs: true
+          videojs: true,
+          exThumbImage: 'data-exthumbimage',
+        });
+
+        // Init justified gallery for albums
+        $("#albums").justifiedGallery({
+          margins: 10,
+          rowHeight: 300,
+          maxRowHeight: 325,
+        });
+
+        // Init justified gallery for photos
+        $("#media").justifiedGallery({
+          selector: '.albumList',
+          margins: 10,
+          rowHeight: 250,
+          maxRowHeight: 275,
         });
       });
     </script>
